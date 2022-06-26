@@ -17,7 +17,7 @@ defmodule CodeRunnerWeb.Router do
   scope "/", CodeRunnerWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", Live.SnippetExecutionLive
   end
 
   # Other scopes may use custom stacks.
