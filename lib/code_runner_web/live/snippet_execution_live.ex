@@ -20,10 +20,11 @@ defmodule CodeRunnerWeb.Live.SnippetExecutionLive do
   def render(assigns) do
     ~H"""
     <h2>Snippet</h2>
+    <div id="editor" phx-update="ignore"></div>
     <.form let={f} for={@changeset} phx-submit="create">
       <%= label f, :content do %>
         Content
-        <%= textarea f, :content %>
+        <%= textarea f, :content, phx_hook: "EditorForm", style: "display: none;" %>
         <%= error_tag f, :content %>
       <% end %>
       <%= label f, :language do %>
